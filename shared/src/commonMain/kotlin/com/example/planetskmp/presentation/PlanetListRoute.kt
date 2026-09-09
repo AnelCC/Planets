@@ -5,6 +5,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.planetskmp.data.Planet
 import com.example.planetskmp.data.PlanetRepositoryImpl
 
 @Composable
@@ -18,7 +19,12 @@ fun PlanetListRoute(
     val planets by viewModel.getPlanets().collectAsState()
 
     PlanetListScreen(
-        planets = planets
+        planets = planets,
+        onPlanetClick = { planet ->
+            viewModel.getPlanet(planet.id)?.let { selectedPlanet ->
+                println("Selected planet: ${selectedPlanet.name}")
+            }
+        }
     )
 }
 

@@ -13,4 +13,7 @@ class PlanetListViewModel(
         return repository.getPlanets()
     }
 
+    fun getPlanet(id: Int): Planet? {
+        return repository.getPlanet(id)
+    }
 }

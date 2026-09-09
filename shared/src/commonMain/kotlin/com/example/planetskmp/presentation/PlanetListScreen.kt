@@ -1,6 +1,7 @@
 package com.example.planetskmp.presentation
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -33,7 +34,8 @@ import planetskmp.shared.generated.resources.venus
 @Composable
 fun PlanetListScreen(
     planets: List<Planet>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onPlanetClick: (Planet) -> Unit,
 ) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -55,6 +57,9 @@ fun PlanetListScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .clickable {
+                            onPlanetClick(planet)
+                        }
                         .padding(horizontal = 32.dp, vertical = 24.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -110,6 +115,6 @@ fun PlanetListScreenPreview() {
                         name = "Venus",
                     ),
             ),
-        )
+        ) { }
     }
 }
