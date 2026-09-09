@@ -109,10 +109,18 @@ fun PlanetListScreenPreview() {
                     Planet(
                         id = 1,
                         name = "Mercury",
+                        description = "The closest planet to the Sun.",
+                        distanceFromSun = "57.9 million km",
+                        diameter = "4,879 km",
+                        moons = 0
                     ),
                     Planet(
                         id = 2,
                         name = "Venus",
+                        description = "The hottest planet in the Solar System.",
+                        distanceFromSun = "108.2 million km",
+                        diameter = "12,104 km",
+                        moons = 0
                     ),
             ),
         ) { }
