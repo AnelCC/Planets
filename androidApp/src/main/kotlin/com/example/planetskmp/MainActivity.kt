@@ -5,10 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.planetskmp.data.Planet
-import com.example.planetskmp.presentation.PlanetListScreen
+import com.example.planetskmp.presentation.PlanetListRoute
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,19 +14,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            PlanetListScreen(
-                modifier = Modifier,
-                planets = listOf(
-                    Planet(1, "Mercury"),
-                    Planet(2, "Venus"),
-                    Planet(3, "Earth"),
-                    Planet(4, "Mars"),
-                    Planet(5, "Jupiter"),
-                    Planet(6, "Saturn"),
-                    Planet(7, "Uranus"),
-                    Planet(8, "Neptune"),
-                ),
-            )
+            PlanetListRoute()
         }
     }
 }
@@ -36,5 +22,5 @@ class MainActivity : ComponentActivity() {
 @Preview
 @Composable
 fun AppAndroidPreview() {
-    App()
+    PlanetListRoute()
 }
