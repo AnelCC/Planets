@@ -30,24 +30,24 @@ fun PlanetListScreen(
             TopAppBar(
                 title = { Text(text = "Solar System Planets") }
             )
-        },
-        content = { innerPadding ->
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding)
-            ) {
-                items(planets) { planet ->
-                    Text(
-                        text = planet.name,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp)
-                    )
-                }
+        }
+    ) { innerPadding ->
+
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+        ) {
+            items(planets) { planet ->
+                Text(
+                    text = planet.name,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                )
             }
         }
-    )
+    }
 }
 
 @Composable
