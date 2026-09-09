@@ -5,14 +5,17 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.planetskmp.data.PlanetRepositoryImpl
 
 @Composable
 fun PlanetListRoute(
     viewModel: PlanetListViewModel = viewModel {
-        PlanetListViewModel()
+        PlanetListViewModel(
+            repository = PlanetRepositoryImpl()
+        )
     }
 ) {
-    val planets by viewModel.planets.collectAsState()
+    val planets by viewModel.getPlanets().collectAsState()
 
     PlanetListScreen(
         planets = planets
